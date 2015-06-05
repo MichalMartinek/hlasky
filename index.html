@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Hlášky Vajdy Prochajdy</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Great+Vibes&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="intro">
+		<h1>Hlášky Vajdy Prochajdy</h1>
+		<a href="#q" class="btn btn--l">Pochytat moudrosti</a>
+	</div>
+	<!--<div class="container" id="q">
+		<div class="q">
+			<p>„To je jako se čvachtat v kaluži.“</p>
+		</div>
+	</div>-->
+	<div class="container" id="q">
+	</div>
+	<div class="social">
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.distigo.cz&t=Distigo"
+   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+   target="_blank" title="Share on Facebook"><i class="fa fa-camera-retro"></i></a>
+	</div>
+	
+	<!-- React JS -->
+<script src="https://fb.me/react-0.12.0.min.js"></script>
+<script src="https://fb.me/JSXTransformer-0.12.0.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.6/firebase.js"></script>
+<!-- ReactFire -->
+<script src="https://cdn.firebase.com/libs/reactfire/0.4.0/reactfire.min.js"></script>
+<script type="text/jsx">
+var TodoList3 = React.createClass({
+  render: function() {
+    var createItem = function(item, index) {
+      return <div className="q"><p key={ index }>{ item.text }</p></div>;
+    };
+    return <div className="hlasky">{ this.props.hlasky.map(createItem) }</div>;
+  }
+});
+
+var TodoApp3 = React.createClass({
+  mixins: [ReactFireMixin],
+
+  getInitialState: function() {
+    return {hlasky: [], text: ""};
+  },
+
+  componentWillMount: function() {
+    var firebaseRef = new Firebase(" https://vivid-torch-6633.firebaseio.com/hlasky/");
+    this.bindAsArray(firebaseRef.limitToLast(25), "hlasky");
+  },
+
+  onChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+    if (this.state.text && this.state.text.trim().length !== 0) {
+      this.firebaseRefs["hlasky"].push({
+        text: this.state.text
+      });
+      this.setState({text: ""});
+    }
+  },
+
+  render: function() {
+    return (
+      <div>
+        <TodoList3  hlasky={ this.state.hlasky } />
+        <form className="add-form" onSubmit={ this.handleSubmit }>
+          <input onChange={ this.onChange } value={ this.state.text } />
+          <button className="btn btn-large submit">Přidat hlášku</button>
+        </form>
+      </div>
+    );
+  }
+});
+
+React.render(<TodoApp3 />, document.getElementById("q"));
+</script>
+</body>
+</html>

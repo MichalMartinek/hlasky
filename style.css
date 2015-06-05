@@ -1,0 +1,129 @@
+body {
+	margin: 0;
+}
+*, 
+*:after, 
+*:before {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.intro {
+	height: 100vh;
+	
+	background: url(bg.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	
+	display: flex;
+  	justify-content: center;
+  	flex-direction: column;
+  	text-align: center;
+  
+}
+.intro h1 {
+	color:rgba(255,255,255,0.85);
+	font-family: 'Great Vibes', cursive;
+	font-size: 7.5vw;
+	
+}
+
+.btn, .btn:link, .btn:visited {
+  width: 30%;
+  border-radius: 0.3em;
+  border-style: solid;
+  border-width: 5px;
+  margin: 0  auto;
+  padding: 1em 0.75em;
+  display: inline-block;
+  color: white;
+  font-family: avenir, helvetica, arial, sans-serif;
+  letter-spacing: 0.15em;
+  text-shadow: 1px 1px gray;
+  text-decoration: none;
+  text-transform: uppercase;
+  
+  -webkit-transition: color 0.4s, background-color 0.4s, border 0.4s;
+  transition: color 0.4s, background-color 0.4s, border 0.4s; }
+
+.btn:hover, .btn:focus {
+  color: #90dede;
+  border: 5px solid #90dede;
+  -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s;
+  transition: background-color 0.3s, color 0.3s, border 0.3s; 
+}
+.btn--l {
+  font-size: 2vw;
+  font-weight: 600;
+  border-radius: 0.25em !important; 
+}
+.submit {
+  font-size: 1.3em;
+  font-weight: 600;
+  border-radius: 0.25em !important; 
+  background: rgba(0, 0, 0,0);
+  margin-left: 15px;
+  color: white;
+  border-color: white;
+  
+  text-shadow: none;
+}
+.submit:hover, .submit:focus {
+  background-color: white;
+  border: 5px solid white;
+  
+}
+.hlasky {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 80vw;
+  min-height: 100vh;
+  font-family: 'Roboto Slab', serif;
+}
+.q {
+  margin: 10vh 0;
+  width: 100%;
+  border-bottom: 2px solid dimgray;
+}
+.q p {
+  font-size: 5vw;
+  font-weight: 600;
+  text-align: center;
+ }
+ .q:last-child  {
+   border: 0;
+ }
+ .add-form, .social {
+   width: 100%;
+   padding: 10vh 0;
+   text-align: center;
+   background: url(bg-add.jpg);
+ }
+ .add-form input {
+   width: 30%;
+  border-radius: 0.3em;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  margin: 0  auto;
+  padding: 1em 0.75em;
+  display: inline-block;
+  margin-bottom: 2em;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .intro h1 {
+		font-size: 3em;
+	
+	}
+ .btn, .btn:link, .btn:visited {
+  width: 70%;
+  font-size: 1.2em;
+}
+ .add-form input {
+   width: 70%;
+
+  }
+}
