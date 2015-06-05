@@ -79,7 +79,6 @@ body {
   margin: 0 auto;
   max-width: 960px;
   width: 80vw;
-  min-height: 100vh;
   font-family: 'Roboto Slab', serif;
 }
 .q {
@@ -112,7 +111,15 @@ body {
   display: inline-block;
   margin-bottom: 2em;
   }
-  
+  .social a {
+    text-decoration: none;
+    color: white;
+    font-size: 7vw;
+    margin-right: 3vw;
+  }
+  .social a:hover{
+    color: rgba(255,255,255,0.70);
+  }
   @media screen and (max-width: 600px) {
     .intro h1 {
 		font-size: 3em;
